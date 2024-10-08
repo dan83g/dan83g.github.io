@@ -1,3 +1,4 @@
+/* eslint-disable import/named */
 import { InputRef } from 'antd';
 import { FormikContextType } from 'formik';
 import { MutableRefObject } from 'react';
