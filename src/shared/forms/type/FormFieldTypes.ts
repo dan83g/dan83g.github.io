@@ -1,7 +1,7 @@
 import { FormikHandlers } from 'formik';
 import { FormProps } from './FormTypes';
-import { valueType } from 'antd/es/statistic/utils';
 
+export type valueType = number | string;
 export type FormFieldProps = Pick<FormProps, 'disabled' | 'autoFocusElement'> & {
   submitCount: number;
   touched: boolean;
