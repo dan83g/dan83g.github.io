@@ -17,6 +17,8 @@ export type Product = {
   category: Category;
 };
 
+export type ProductInCart = Product & { count: number };
+
 interface IOperation {
   id: string;
   name: string;

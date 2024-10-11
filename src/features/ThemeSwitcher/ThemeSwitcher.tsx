@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import cn from 'clsx';
 import { WiMoonAltWaningCrescent4, WiDaySunny } from 'react-icons/wi';
 import { useThemeContext, Theme } from '../../app/theming';
-import s from './ThemeSwitcher.sass';
+import s from './ThemeSwitcher.module.sass';
 
 export type ThemeSwitcherProps = {
   className?: string;

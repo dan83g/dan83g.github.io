@@ -30,7 +30,7 @@ export const ProductForm: FC = () => {
   const validate = (values: ProductFormValues) => {
     const errors = {} as ProductFormErrors;
     if (isUndefiend(values.name)) errors.name = t('errors.ERR_IS_REQUIRED');
-    if (values.price == undefined || Number(values.price) <= 0) errors.price = t('errors.number_is_lower_then_zero');
+    if (values.price == undefined || Number(values.price) <= 0) errors.price = t('errors.ERR_BELOW_ZERO');
     if (isUndefiend(values.category)) errors.category = t('errors.ERR_IS_REQUIRED');
     return errors;
   };

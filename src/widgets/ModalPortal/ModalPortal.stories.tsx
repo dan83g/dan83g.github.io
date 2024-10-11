@@ -6,6 +6,10 @@ const meta: Meta<typeof ModalPortal> = {
   title: 'Components/ModalPortal',
   component: ModalPortal,
   tags: ['autodocs'],
+  /* 
+    argTypes are automatically inferred from component thanks to 'autodocs',
+    we don't need custom implementation of argTypes for now so we don't need to use them
+    */
 };
 
 export default meta;

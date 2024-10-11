@@ -7,6 +7,7 @@ export const resources = {
       errors: {
         unexpected_error: 'Unexpected error. We automatically register errors and will fix everything soon',
         'Failed to fetch': 'Connection error. Go to the server directory and start the server using the start script',
+        ERR_BELOW_ZERO: 'Cost is below zero',
         ERR_IS_REQUIRED: 'Required field',
         too_short_password: 'The password is too short',
         ERR_NOT_SAME_PASSWORD: "Passwords don't match",
@@ -56,6 +57,12 @@ export const resources = {
             submit: 'Sign out',
           },
         },
+      },
+      navigation: {
+        home: 'Home',
+        profile: 'Profile',
+        cart: 'Cart',
+        product: 'Product',
       },
       forms: {
         LoginForm: {
@@ -202,6 +209,7 @@ export const resources = {
         'Failed to fetch':
           'Ошибка соединения. Перейдите в директорию server и запустите сервер с помощью скрипта start',
         ERR_IS_REQUIRED: 'Обязательное поле',
+        ERR_BELOW_ZERO: 'Цена ниже нуля',
         too_short_password: 'Слишком короткий пароль',
         ERR_NOT_SAME_PASSWORD: 'Пароли не совпадают',
         ERR_INCORRECT_EMAIL_OR_PASSWORD: 'Некорректный пароль или email',
@@ -251,6 +259,12 @@ export const resources = {
             submit: 'Зарегистрироваться',
           },
         },
+      },
+      navigation: {
+        home: 'Домашняя страница',
+        profile: 'Профиль',
+        cart: 'Корзина',
+        product: 'Продукт',
       },
       forms: {
         LoginForm: {

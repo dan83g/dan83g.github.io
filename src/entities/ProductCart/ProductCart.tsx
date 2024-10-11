@@ -1,24 +1,26 @@
-import React, { useState } from 'react';
-import s from './ProductCard.module.sass';
+import React, { useState, useEffect } from 'react';
+import s from './ProductCart.module.sass';
 import Basket from '../Basket/Basket';
-import { Category } from './types';
+import { Category } from '../ProductCard/types';
 import cn from 'clsx';
 
-interface ProductCardProps {
+interface ProductCartProps {
   id: string;
+  name: string;
   price: number;
   image: string;
-  name: string;
   description: string;
   category: Category;
-  observerClassName: string;
+  count: number;
+  onCountChange(id: string, count: number): void;
 }
 
-const ProductCard = ({ observerClassName, id, price, image, name, description }: ProductCardProps) => {
-  const [count, setCount] = useState<number>(0);
+export const ProductCart = ({ id, name, price, image, description, ...props }: ProductCartProps) => {
+  const [count, setCount] = useState<number>(props.count);
+  useEffect(() => props.onCountChange(id, count), [count, id, props]);
 
   return (
-    <div className={cn(observerClassName, s['product-card'])}>
+    <div className={cn(s['product-card'])}>
       <img src={image} alt={name} className={s['product-card__image']} />
       <p>{name}</p>
       <p className={s['product-card__description']}>{description}</p>
@@ -32,5 +34,3 @@ const ProductCard = ({ observerClassName, id, price, image, name, description }:
     </div>
   );
 };
-
-export default ProductCard;

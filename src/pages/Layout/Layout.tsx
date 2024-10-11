@@ -1,17 +1,15 @@
-import React from 'react';
-import s from './Layout.module.sass';
-import ProductList from 'src/entities/ProductList/ProductList';
-import Header from '../../widgets/Header/Header';
+import React, { FC, ReactElement } from 'react';
+import Header from 'src/widgets/Header/Header';
 
-const Layout = () => {
+interface ILayout {
+  children?: React.ReactNode;
+}
+
+export const Layout: FC<ILayout> = ({ children }): ReactElement => {
   return (
     <>
       <Header />
-      <div className={s.layout}>
-        <ProductList />
-      </div>
+      {children}
     </>
   );
 };
-
-export default Layout;

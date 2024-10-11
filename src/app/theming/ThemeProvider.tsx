@@ -1,6 +1,6 @@
 import React, { createContext, FC, useCallback, useContext, useInsertionEffect, useState, useMemo } from 'react';
 import { Theme } from './types';
-import s from './ThemeProvider.sass';
+import s from './ThemeProvider.module.sass';
 
 export type ThemeProviderProps = {
   children: React.ReactNode;
@@ -20,7 +20,8 @@ const KEY = 'theme';
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
   const [theme, setTheme] = useState<Theme>(() => (localStorage.getItem(KEY) as Theme) || Theme.light);
-
+  const toggleTheme = useCallback(() => setTheme((v) => (v === Theme.light ? Theme.dark : Theme.light)), []);
+  const value = useMemo(() => ({ theme, toggleTheme, setTheme }), [theme, toggleTheme, setTheme]);
   useInsertionEffect(() => {
     localStorage.setItem(KEY, theme);
     const html = document.body.parentElement;
@@ -29,9 +30,6 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
     return () => html.classList.remove(theme);
   }, [theme]);
 
-  const toggleTheme = useCallback(() => setTheme((v) => (v === Theme.light ? Theme.dark : Theme.light)), []);
-
-  const value = useMemo(() => ({ theme, toggleTheme, setTheme }), [theme, toggleTheme, setTheme]);
   return (
     <ThemeContext.Provider value={value}>
       <div className={s.root}>{children}</div>

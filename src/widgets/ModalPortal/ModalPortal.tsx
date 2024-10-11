@@ -12,7 +12,16 @@ const ModalPortal = ({ visible, children }: ModalPortalProps) => {
 
   const bodyEl = document.querySelector('body');
 
-  return <div>{createPortal(<Modal visible={visible}>{children}</Modal>, bodyEl)}</div>;
+  return (
+    <div>
+      {createPortal(
+        <Modal visible={visible} onClose={() => true}>
+          {children}
+        </Modal>,
+        bodyEl
+      )}
+    </div>
+  );
 };
 
 export default ModalPortal;
