@@ -7,22 +7,41 @@ import { Cart } from 'src/pages/Cart/Cart';
 import { Product } from 'src/pages/Product/Product';
 import { Home } from 'src/pages/Home/Home';
 import { NotFound } from 'src/pages/NotFound/NotFound';
+import { Auth } from 'src/pages/Auth/Auth';
+import { ProtectedRoute } from 'src/pages/Navigation/ProtectedRoute';
+import { Initializer } from './store/Initializer';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Providers>
+    <Providers>
+      <Initializer />
+      <BrowserRouter>
         <Layout>
           <Routes>
             <Route index element={<Home />} />
-            <Route path="profile" element={<Profile />} />
-            <Route path="product" element={<Product />} />
             <Route path="cart" element={<Cart />} />
+            <Route
+              path="profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="product"
+              element={
+                <ProtectedRoute isRestricted={true}>
+                  <Product visible={true} />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="auth" element={<Auth visible={true} />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
-      </Providers>
-    </BrowserRouter>
+      </BrowserRouter>
+    </Providers>
   );
 }
 

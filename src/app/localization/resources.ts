@@ -66,6 +66,7 @@ export const resources = {
       },
       forms: {
         LoginForm: {
+          title: 'Sign in',
           email: {
             title: 'Email',
             placeholder: 'Enter email',
@@ -146,7 +147,8 @@ export const resources = {
       },
       components: {
         Basket: {
-          title: 'Add to cart',
+          toCart: 'To cart',
+          deleteFromCart: 'Delete',
         },
         RemoveButton: {
           title: 'Data will be lost, delete?',
@@ -268,6 +270,7 @@ export const resources = {
       },
       forms: {
         LoginForm: {
+          title: 'Вход',
           email: {
             title: 'Email',
             placeholder: 'Укажите email',
@@ -348,7 +351,8 @@ export const resources = {
       },
       components: {
         Basket: {
-          title: 'Добавить в корзину',
+          toCart: 'В корзину',
+          deleteFromCart: 'Удалить',
         },
         RemoveButton: {
           title: 'Данные будут потеряны, удалить?',

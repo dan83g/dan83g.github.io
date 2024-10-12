@@ -3,6 +3,7 @@ import Logo from '../../entities/Logo/Logo';
 import { ThemeSwitcher } from 'src/features/ThemeSwitcher';
 import { LangSwitcher } from 'src/features/LangSwitcher';
 import { Navigation } from 'src/pages/Navigation/Navigation';
+import { Login } from 'src/features/Login/Login';
 import s from './Header.module.sass';
 
 const Header = () => {
@@ -16,6 +17,7 @@ const Header = () => {
       <div className={s.icons}>
         <ThemeSwitcher />
         <LangSwitcher />
+        <Login />
       </div>
     </header>
   );

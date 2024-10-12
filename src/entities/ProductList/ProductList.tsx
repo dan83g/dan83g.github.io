@@ -1,33 +1,30 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { FC, ReactElement, useState, useEffect } from 'react';
-import { Product, createRandomProducts } from '../ProductCard/types';
+import React, { FC, ReactElement, useEffect } from 'react';
 import ProductCard from '../ProductCard/ProductCard';
+import { useSelector, useDispatch } from 'react-redux';
+import { productsSelectors, productsActions } from 'src/app/store/products';
+import { RootState } from 'src/app/store';
 import s from './ProductList.module.sass';
 
-type ProductList = {
-  products?: Product[];
-};
-
-const PRODUCTS_PER_PAGE = 20;
 const OBSERVER_CLASS_NAME = 'observer-product';
 
-export const ProductList: FC<ProductList> = (): ReactElement => {
-  const [productsArray, setProductsArray] = useState(createRandomProducts(PRODUCTS_PER_PAGE));
-
+export const ProductList: FC = (): ReactElement => {
+  const dispatch = useDispatch();
+  const products = useSelector<RootState, RootState['products']>(productsSelectors.get);
   useEffect(() => {
     const cards = document.getElementsByClassName(OBSERVER_CLASS_NAME);
     const lastCardObserver = new IntersectionObserver((entries) => {
       entries.forEach(({ isIntersecting }) => {
-        isIntersecting && setProductsArray(productsArray.concat(createRandomProducts(PRODUCTS_PER_PAGE)));
+        isIntersecting && dispatch(productsActions.addNext());
       });
     }, {});
     if (cards?.length > 0) lastCardObserver.observe(cards[cards.length - 1]);
-  }, [productsArray.length]);
+  }, [products.length]);
 
   return (
     <div className={s.root}>
-      {productsArray?.length > 0 &&
-        productsArray.map(({ id, name, image, description, price, category }) => {
+      {products?.length > 0 &&
+        products.map(({ id, name, image, description, price, category }) => {
           return (
             <ProductCard
               key={id}

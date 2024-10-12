@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import s from './ProductCart.module.sass';
-import Basket from '../Basket/Basket';
-import { Category } from '../ProductCard/types';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React from 'react';
 import cn from 'clsx';
+import Basket from '../Basket/Basket';
+import { Category, ProductInCart } from '../ProductCard/types';
+import { useDispatch } from 'react-redux';
+import { cartActions } from 'src/app/store/cart';
+import s from './ProductCart.module.sass';
 
 interface ProductCartProps {
   id: string;
@@ -12,12 +15,24 @@ interface ProductCartProps {
   description: string;
   category: Category;
   count: number;
-  onCountChange(id: string, count: number): void;
 }
 
-export const ProductCart = ({ id, name, price, image, description, ...props }: ProductCartProps) => {
-  const [count, setCount] = useState<number>(props.count);
-  useEffect(() => props.onCountChange(id, count), [count, id, props]);
+export const ProductCart = ({ id, name, price, image, description, count }: ProductCartProps) => {
+  const dispatch = useDispatch();
+
+  const onIncrease = () => {
+    dispatch(cartActions.addProduct({ id, price, image, name, description, count: count + 1 } as ProductInCart));
+  };
+
+  const onDecrease = () => {
+    dispatch(
+      cartActions.addProduct({ id, price, image, name, description, count: count ? count - 1 : count } as ProductInCart)
+    );
+  };
+
+  const onDeleteClick = () => {
+    dispatch(cartActions.delProduct(id));
+  };
 
   return (
     <div className={cn(s['product-card'])}>
@@ -25,12 +40,7 @@ export const ProductCart = ({ id, name, price, image, description, ...props }: P
       <p>{name}</p>
       <p className={s['product-card__description']}>{description}</p>
       <p>{price}$</p>
-      <Basket
-        count={count}
-        productId={id}
-        onIncrease={() => setCount(count + 1)}
-        onDecrease={() => setCount(count - 1 === -1 ? 0 : count - 1)}
-      />
+      <Basket count={count} onIncrease={onIncrease} onDecrease={onDecrease} onDeleteClick={onDeleteClick} />
     </div>
   );
 };

@@ -1,11 +1,15 @@
 import React, { memo } from 'react';
-
 import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
 import { Button } from 'src/shared/buttons/Button/Button';
 import { isUndefiend, isInvalidEmail } from 'src/shared/forms/lib/validation';
 import { TextFormField } from 'src/shared/forms/fields/TextFormField';
 import { PasswordFormField } from 'src/shared/forms/fields/PasswordFormField';
+import { useDispatch } from 'react-redux';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { NavigationState } from 'src/pages/Navigation/Navigation';
+import { tokenActions } from 'src/app/store/token';
+import { profileActions } from 'src/app/store/profile';
 
 export type LoginFormValues = {
   email: string;
@@ -15,7 +19,9 @@ export type LoginFormErrors = Record<keyof LoginFormValues, string>;
 
 export const LoginForm = memo(() => {
   const { t } = useTranslation();
-
+  const navigate = useNavigate();
+  const location = useLocation();
+  const dispatch = useDispatch();
   const validate = (values: LoginFormValues) => {
     const errors = {} as LoginFormErrors;
     if (isUndefiend(values.email)) errors.email = t('errors.ERR_IS_REQUIRED');
@@ -27,7 +33,9 @@ export const LoginForm = memo(() => {
   const formManager = useFormik<LoginFormValues>({
     initialValues: { email: '', password: '' },
     onSubmit: (values, actions) => {
-      console.log('values: ', values);
+      dispatch(tokenActions.generate());
+      dispatch(profileActions.setProfile(values.email));
+      navigate((location.state as NavigationState)?.from || '/');
       actions.resetForm();
     },
     validate: validate,
@@ -37,6 +45,7 @@ export const LoginForm = memo(() => {
 
   return (
     <form>
+      <h4>{t('forms.LoginForm.title')}</h4>
       <TextFormField
         onBlur={handleBlur}
         onChange={handleChange}

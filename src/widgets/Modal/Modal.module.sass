@@ -1,3 +1,5 @@
+@import src/app/styles/common
+
 .modal
   position: fixed
   top: 0
@@ -16,6 +18,9 @@
     border-radius: 4px
     position: relative
     width: 400px
+    +theme(background-color, mainBg)
+    +theme(color, text)
+    +theme(border-color, borderColor2)
 
   &__close-button
     position: absolute
@@ -25,3 +30,6 @@
     border: none
     font-size: 24px
     cursor: pointer
+    +theme(background-color, mainBg)
+    +theme(color, text)
+    +theme(border-color, borderColor2)
