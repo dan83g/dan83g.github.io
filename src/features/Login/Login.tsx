@@ -4,12 +4,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { tokenSelectors, tokenActions } from 'src/app/store/token';
 import { profileActions } from 'src/app/store/profile';
-import { RootState } from 'src/app/store';
 import s from './Login.module.sass';
 
 export const Login: FC = () => {
   const navigate = useNavigate();
-  const token = useSelector<RootState, RootState['token']>(tokenSelectors.get);
+  const token = useSelector(tokenSelectors.get);
   const dispatch = useDispatch();
 
   const onSignInClick = () => {

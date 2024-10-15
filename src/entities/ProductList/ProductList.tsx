@@ -3,14 +3,13 @@ import React, { FC, ReactElement, useEffect } from 'react';
 import ProductCard from '../ProductCard/ProductCard';
 import { useSelector, useDispatch } from 'react-redux';
 import { productsSelectors, productsActions } from 'src/app/store/products';
-import { RootState } from 'src/app/store';
 import s from './ProductList.module.sass';
 
 const OBSERVER_CLASS_NAME = 'observer-product';
 
 export const ProductList: FC = (): ReactElement => {
   const dispatch = useDispatch();
-  const products = useSelector<RootState, RootState['products']>(productsSelectors.get);
+  const products = useSelector(productsSelectors.get);
   useEffect(() => {
     const cards = document.getElementsByClassName(OBSERVER_CLASS_NAME);
     const lastCardObserver = new IntersectionObserver((entries) => {

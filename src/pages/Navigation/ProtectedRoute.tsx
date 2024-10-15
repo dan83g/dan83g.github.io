@@ -1,27 +1,16 @@
 /* eslint-disable import/named */
 import React, { FC } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from 'src/app/store';
-import { Navigate, useLocation, Location } from 'react-router-dom';
-import { profileSelectors } from 'src/app/store/profile';
-import { tokenSelectors } from 'src/app/store/token';
-
-export type NavigationState = {
-  from?: Location;
-};
+import { Navigate, useLocation } from 'react-router-dom';
+import { useTokenSelector } from 'src/app/store/token';
+import { NavigationState } from './Navigation';
 
 export interface IProtectedRoute {
-  isRestricted?: boolean;
   children: React.ReactNode;
 }
 
-export const ProtectedRoute: FC<IProtectedRoute> = ({ children, isRestricted = false }) => {
-  const token = useSelector<RootState, RootState['token']>(tokenSelectors.get);
-  const profile = useSelector<RootState, RootState['profile']>(profileSelectors.get);
+export const ProtectedRoute: FC<IProtectedRoute> = ({ children }) => {
   const location = useLocation();
-  if (token) {
-    if (!isRestricted) return <>{children}</>;
-    if (isRestricted && profile.isAdmin) return <>{children}</>;
-  }
+  const token = useTokenSelector((state) => state.token);
+  if (token) return <>{children}</>;
   return <Navigate to="/auth" state={{ from: location } as NavigationState} replace />;
 };

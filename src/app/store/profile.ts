@@ -1,51 +1,45 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { RootState } from '.';
+/* eslint-disable import/named */
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { useSelector, TypedUseSelectorHook } from 'react-redux';
+import { RootState } from './store';
+import { IProfile, adminProfile } from 'src/entities/Profile/model/profile';
+import { IRegisterFormValues } from 'src/features/forms/RegisterForm/RegisterForm';
 
-const anonymousProfile: Profile = {
-  id: '0',
-  name: 'anonymous',
-  login: 'anonymous@example.com',
-  isAdmin: false,
-};
-
-const profiles: Profile[] = [
-  {
-    id: '1',
-    name: 'admin',
-    login: 'admin@example.com',
-    password: '123',
-    isAdmin: true,
-  },
-  {
-    id: '2',
-    name: 'user',
-    login: 'user@example.com',
-    password: '123',
-    isAdmin: false,
-  },
-];
-
-export interface Profile {
-  id: string;
-  name: string;
-  login: string;
-  password?: string;
-  isAdmin: boolean;
-}
-
-const profileSlice = createSlice({
+export const profileSlice = createSlice({
   name: 'profile',
-  initialState: localStorage.getItem('profile')
-    ? (JSON.parse(localStorage.getItem('profile')) as Profile)
-    : anonymousProfile,
+  initialState: {
+    profile: localStorage.getItem('profile') ? (JSON.parse(localStorage.getItem('profile')) as IProfile) : undefined,
+    // profile: undefined,
+    errorMessage: undefined,
+    errorCode: undefined,
+    isLoading: false,
+    isProfileLoaded: false,
+  },
   reducers: {
-    setProfile: (state, { payload: login }) => {
-      const userProfile =
-        profiles.find((profile) => profile.login === login) ?? ({ login: login, isAdmin: false } as Profile);
-      return userProfile;
+    setProfile: (state, action: PayloadAction<IProfile>) => {
+      const profile = action.payload;
+      state.profile = adminProfile.email === profile.email ? adminProfile : profile;
+      state.isProfileLoaded = true;
     },
-    clearProfile: () => {
-      return anonymousProfile;
+    clearProfile: (state) => {
+      state.profile = undefined;
+      state.isProfileLoaded = false;
+    },
+    setErrorMessage: (state, action: PayloadAction<string>) => {
+      state.errorMessage = action.payload;
+    },
+    setErrorCode: (state, action: PayloadAction<string>) => {
+      state.errorCode = action.payload;
+    },
+    setIsLoading: (state, action: PayloadAction<boolean>) => {
+      state.isLoading = action.payload;
+    },
+    doSagaAuth: (state, action: PayloadAction<IRegisterFormValues>) => {
+      console.log(action.payload);
+      state.isLoading = true;
+      state.errorCode = undefined;
+      state.errorMessage = undefined;
+      state.isProfileLoaded = false;
     },
   },
 });
@@ -55,5 +49,6 @@ export const profileSelectors = {
     return state.profile;
   },
 };
+export const useProfileSelector: TypedUseSelectorHook<RootState> = useSelector;
 export const profile = profileSlice.reducer;
 export const profileActions = profileSlice.actions;

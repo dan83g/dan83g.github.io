@@ -7,6 +7,8 @@ export const resources = {
       errors: {
         unexpected_error: 'Unexpected error. We automatically register errors and will fix everything soon',
         'Failed to fetch': 'Connection error. Go to the server directory and start the server using the start script',
+        ERR_NO_PERMISSIONS: "You don't have permission",
+        ERR_PAGE_NOT_FOUND: 'Page not found',
         ERR_BELOW_ZERO: 'Cost is below zero',
         ERR_IS_REQUIRED: 'Required field',
         too_short_password: 'The password is too short',
@@ -77,6 +79,20 @@ export const resources = {
           },
           submitButton: {
             title: 'Sign in',
+          },
+        },
+        RegisterForm: {
+          title: 'Registration',
+          email: {
+            title: 'Email',
+            placeholder: 'Enter email',
+          },
+          password: {
+            title: 'Password',
+            placeholder: 'Enter password',
+          },
+          submitButton: {
+            title: 'Register',
           },
         },
         ChangePasswordForm: {
@@ -210,6 +226,8 @@ export const resources = {
         unexpected_error: 'Неожиданная ошибка. Мы автоматически регистрируем ошибки и скоро все исправим',
         'Failed to fetch':
           'Ошибка соединения. Перейдите в директорию server и запустите сервер с помощью скрипта start',
+        ERR_NO_PERMISSIONS: 'У Вас нет прав доступа',
+        ERR_PAGE_NOT_FOUND: 'Страница не найдена',
         ERR_IS_REQUIRED: 'Обязательное поле',
         ERR_BELOW_ZERO: 'Цена ниже нуля',
         too_short_password: 'Слишком короткий пароль',
@@ -281,6 +299,20 @@ export const resources = {
           },
           submitButton: {
             title: 'Войти',
+          },
+        },
+        RegisterForm: {
+          title: 'Регистрация',
+          email: {
+            title: 'Email',
+            placeholder: 'Укажите email',
+          },
+          password: {
+            title: 'Пароль',
+            placeholder: 'Укажите пароль',
+          },
+          submitButton: {
+            title: 'Зарегистрироваться',
           },
         },
         ChangePasswordForm: {

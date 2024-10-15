@@ -34,7 +34,15 @@ export const LoginForm = memo(() => {
     initialValues: { email: '', password: '' },
     onSubmit: (values, actions) => {
       dispatch(tokenActions.generate());
-      dispatch(profileActions.setProfile(values.email));
+      dispatch(
+        profileActions.setProfile({
+          name: values.email,
+          email: values.email,
+          isAdmin: false,
+          id: '123',
+          signUpDate: new Date().toISOString(),
+        })
+      );
       navigate((location.state as NavigationState)?.from || '/');
       actions.resetForm();
     },
@@ -45,7 +53,6 @@ export const LoginForm = memo(() => {
 
   return (
     <form>
-      <h4>{t('forms.LoginForm.title')}</h4>
       <TextFormField
         onBlur={handleBlur}
         onChange={handleChange}

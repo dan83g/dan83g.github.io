@@ -6,15 +6,19 @@ import { isUndefiend, isInvalidEmail } from 'src/shared/forms/lib/validation';
 import { TextFormField } from 'src/shared/forms/fields/TextFormField';
 import { PasswordFormField } from 'src/shared/forms/fields/PasswordFormField';
 
-export type RegisterFormValues = {
+export interface IRegisterFormValues {
   email: string;
   password: string;
-};
-export type RegisterFormErrors = Record<keyof RegisterFormValues, string>;
+}
+export type RegisterFormErrors = Record<keyof IRegisterFormValues, string>;
 
-export const RegisterForm = memo(() => {
+export interface IRegisterForm {
+  onFormSubmit: (values: IRegisterFormValues) => void;
+}
+
+export const RegisterForm = memo(({ onFormSubmit }: IRegisterForm) => {
   const { t } = useTranslation();
-  const validate = (values: RegisterFormValues) => {
+  const validate = (values: IRegisterFormValues) => {
     const errors = {} as RegisterFormErrors;
     if (isUndefiend(values.email)) errors.email = t('errors.ERR_IS_REQUIRED');
     if (!isUndefiend(values.email) && !isInvalidEmail(values.email)) errors.email = t('errors.ERR_INVALID_EMAIL');
@@ -22,10 +26,10 @@ export const RegisterForm = memo(() => {
     return errors;
   };
 
-  const formManager = useFormik<RegisterFormValues>({
+  const formManager = useFormik<IRegisterFormValues>({
     initialValues: { email: '', password: '' },
     onSubmit: (values, actions) => {
-      console.log('values: ', values);
+      onFormSubmit(values);
       actions.resetForm();
     },
     validate: validate,
@@ -43,8 +47,8 @@ export const RegisterForm = memo(() => {
         submitCount={submitCount}
         touched={touched.email}
         name="email"
-        title={t('forms.LoginForm.email.title')}
-        placeholder={t('forms.LoginForm.email.placeholder')}
+        title={t('forms.RegisterForm.email.title')}
+        placeholder={t('forms.RegisterForm.email.placeholder')}
       />
 
       <PasswordFormField
@@ -55,12 +59,12 @@ export const RegisterForm = memo(() => {
         submitCount={submitCount}
         touched={touched.password}
         name="password"
-        title={t('forms.LoginForm.password.title')}
-        placeholder={t('forms.LoginForm.password.placeholder')}
+        title={t('forms.RegisterForm.password.title')}
+        placeholder={t('forms.RegisterForm.password.placeholder')}
       />
 
       <Button type="submit" variant={'primary'} size="small" onClick={handleSubmit}>
-        {t('forms.LoginForm.submitButton.title')}
+        {t('forms.RegisterForm.submitButton.title')}
       </Button>
     </form>
   );

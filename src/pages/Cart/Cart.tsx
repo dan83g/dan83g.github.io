@@ -2,7 +2,7 @@ import React from 'react';
 import { ProductInCart } from 'src/entities/ProductCard/types';
 import { ProductCart } from 'src/entities/ProductCart/ProductCart';
 import { useSelector } from 'react-redux';
-import { RootState } from 'src/app/store';
+import { RootState } from 'src/app/store/store';
 import s from './Cart.module.sass';
 
 export const Cart = () => {

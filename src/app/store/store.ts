@@ -5,7 +5,7 @@ import { profile } from './profile';
 import { products } from './products';
 import { cart } from './cart';
 import { initialized } from './initialized';
-import { sagas } from './sagas';
+import { sagas } from './sagas/main';
 
 const sagaMiddleware = createSagaMiddleware();
 

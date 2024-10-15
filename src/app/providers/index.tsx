@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { store } from '../store';
+import { store } from '../store/store';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from '../theming';
 import { LocalizationInitiator } from '../localization/LocalizationInitiator';

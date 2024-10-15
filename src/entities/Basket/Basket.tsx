@@ -15,13 +15,13 @@ const Basket = ({ count, onIncrease, onDecrease, onDeleteClick }: BasketProps) =
   return (
     <div className={s.root}>
       {count === 0 ? (
-        <button onClick={() => onIncrease()}>{t`components.Basket.toCart`}</button>
+        <button onClick={onIncrease}>{t`components.Basket.toCart`}</button>
       ) : (
         <div>
-          <button onClick={() => onDecrease()}>-</button>
+          <button onClick={onDecrease}>-</button>
           <input className={s.input} type="text" value={count} readOnly />
-          <button onClick={() => onIncrease()}>+</button>
-          <button className={s.delete} onClick={() => onDeleteClick()}>{t`components.Basket.deleteFromCart`}</button>
+          <button onClick={onIncrease}>+</button>
+          <button className={s.delete} onClick={onDeleteClick}>{t`components.Basket.deleteFromCart`}</button>
         </div>
       )}
     </div>
