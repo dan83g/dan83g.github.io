@@ -12,7 +12,7 @@ export const getApiParameters = <T>(params: T): Record<string, string> => {
     if (typeof value === 'object' && value !== undefined && value !== null) {
       result[key] = JSON.stringify(value);
     } else {
-      result[key] = value.toString();
+      result[key] = `"${value.toString()}"`;
     }
   });
   return result;

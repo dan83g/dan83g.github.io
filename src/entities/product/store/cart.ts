@@ -24,9 +24,15 @@ export const useCartStore = create<ICartState>()(
         set({ cart: newCart });
       },
       decrementQuantity: (id: string) => {
-        const newCart = get().cart.map((i) => (i.id === id ? { ...i, quantity: i.quantity - 1 } : i));
+        const newCart = get()
+          .cart.map((i) => (i.id === id ? { ...i, quantity: i.quantity - 1 } : i))
+          .filter((i) => i.quantity > 0);
         set({ cart: newCart });
       },
+      clearCart: () => {
+        set({ cart: [] });
+      },
+      getProductQuantity: (id: string) => get().cart.find((p) => p.id === id)?.quantity ?? 0,
       getTotalItems: () => get().cart.length,
       getTotalQuantity: () => get().cart.reduce((x: number, y) => x + y.quantity, 0),
       getTotalPrice: () => get().cart.reduce((x: number, y) => x + y.price * y.quantity, 0),

@@ -1,0 +1,14 @@
+@import src/app/styles/common
+  
+.button
+  margin-left: 0.5rem
+  border: none
+  cursor: pointer
+  outline: none
+  text-align: start  
+  +theme(color, text)
+  +theme(box-shadow, boxShadow)
+  +theme(border-color, borderColor)    
+
+  &:hover
+    opacity: .7

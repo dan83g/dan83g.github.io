@@ -1,0 +1,69 @@
+@import src/app/styles/common
+
+.root
+  flex-grow: 1
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: row
+  gap: 20px
+
+.search
+
+  &__bar
+    position: relative
+    box-shadow: 0 4px 20px rgba(175, 173, 181, 0.2)
+    max-height: 32px
+    flex-grow: 1
+    max-width: 700px
+  
+  &__icon
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    left: 5px
+    width: 32px
+    height: 32px
+    color: #AFADB5
+  
+  &__button
+    // line-height: 130%
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    right: 2px
+    height: 90%
+
+.input
+  max-height: inherit
+
+.filter
+  position: relative
+
+  button
+    border: solid 2px
+    text-align: center
+    width: 135px
+    height: 32px
+
+  &__text_wrapper
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    display: flex
+    align-items: center
+    justify-content: center
+    cursor: pointer
+    pointer-events: none
+    gap: 12px
+    font-size: 1rem
+    font-weight: 700
+    +theme(color, text)
+
+  &__icon
+    width: 30px
+    height: 30px
+
+  &__text
+    font-size: 16px

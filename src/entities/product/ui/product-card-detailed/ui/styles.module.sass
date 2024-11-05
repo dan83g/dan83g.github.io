@@ -1,0 +1,59 @@
+@import src/app/styles/common
+
+.root
+  display: flex
+  flex-direction: row
+  gap: 30px
+
+.product_card
+
+  &__description_block
+    margin-bottom: 30px
+
+  &__image
+    width: inherit
+
+  &__title
+    margin-bottom: 20px
+    font-size: 26px
+    line-height: 130%
+    +theme(color, brightText)
+
+  &__text
+    margin-bottom: 30px
+    font-weight: 500
+    font-size: 18px
+    margin-bottom: 128px
+    +theme(color, secondaryColor)
+
+  &__price
+    +theme(color, brightText)
+    font-size: 44px
+    font-weight: 700
+
+  &__buttons
+    display: flex
+    flex-direction: row
+    margin-top: 50px
+    gap: 20px
+
+  &__button
+    width: 100%
+    flex-grow: 1
+    justify-content: center
+    text-align: center
+
+  &__add_button
+    border: 2px solid
+    +theme(border-color, secondaryColor)
+    +theme(background-color, primaryColor)
+    +theme(color, brightText)
+
+.left_block
+  display: flex
+  width: 100%
+  align-items: center
+
+.right_block
+  width: 100%
+  margin-top: 32px

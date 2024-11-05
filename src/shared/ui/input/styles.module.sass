@@ -1,0 +1,34 @@
+@import src/app/styles/common
+   
+.input
+  width: 100%
+  box-sizing: border-box
+  border-radius: 5px
+  padding-left: 40px
+  border: none
+  
+  font-size: 18px
+  font-weight: 500
+  line-height: 180%
+  outline: none
+  +theme(color, text)
+  +theme(box-shadow, boxShadow)
+  +theme(background-color, mainBg)
+
+  &::placeholder
+    +theme(color, secondaryColor)
+    font-size: 18px
+    font-weight: 500
+    line-height: 180%
+
+  &:focus
+    outline: 1px solid
+    +theme(outline-color, primaryColor)
+
+.input_disabled
+  font-family: 'Roboto', sans-serif
+  font-size: 18px
+  font-style: normal
+  font-weight: 400
+  line-height: 180%
+  opacity: .7

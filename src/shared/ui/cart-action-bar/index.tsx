@@ -1,6 +1,6 @@
 import React from 'react';
-import cn from 'clsx';
 import { useTranslation } from 'react-i18next';
+import { MdDeleteOutline } from 'react-icons/md';
 import s from './styles.module.sass';
 
 export interface ICartActionBarProps {
@@ -27,15 +27,17 @@ export const CartActionBar = ({
       ) : (
         <>
           <div className={s['input-group']}>
-            <button className={cn(s['value-button'], s.increment)} onClick={onDecrease}>
+            <button className={s['input-group__value-button']} onClick={onDecrease}>
               -
             </button>
-            <input className={s.input} type="text" value={quantity} readOnly />
-            <button className={cn(s['value-button'], s.decrement)} onClick={onIncrease}>
+            <input className={s['input-group__input']} type="text" value={quantity} readOnly />
+            <button className={s['input-group__value-button']} onClick={onIncrease}>
               +
             </button>
           </div>
-          <button className={s.button} onClick={onRemoveFromCart}>{t`components.AddToCart.deleteFromCart`}</button>
+          <button className={s.button} onClick={onRemoveFromCart} title={t`components.AddToCart.deleteFromCart`}>
+            <MdDeleteOutline className={s.button__icon} />
+          </button>
         </>
       )}
     </div>

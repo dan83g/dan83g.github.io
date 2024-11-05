@@ -14,6 +14,7 @@ export const useProfileStore = create<IProfileState>()(
         set({ profile: undefined });
       },
       getProfile: () => get().profile,
+      isProfileLoaded: () => (get().profile ? true : false),
     }),
     {
       name: 'profile-storage',

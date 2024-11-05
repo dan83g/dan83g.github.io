@@ -23,12 +23,13 @@ export const resources = {
         ERR_INVALID_PASSWORD: 'The password must contain at least 8 characters',
         ERR_INVALID_EMAIL: 'Invalid email',
         ERR_INVALID_IMAGE_LINK: 'Invalid photo link',
+        ERR_NO_MATCHING: 'There are no products matching these search terms',
         ERR_TOKEN_REQUIRED_ERROR:
           'Server token error. We automatically register all errors and will fix everything soon',
         ERR_AUTH_ERROR: 'You are not logged in, log in to your account and try again',
         ERR_DATA_BASE_ERROR: 'Database server error. We automatically register all errors and will fix everything soon',
         INTERNAL_SERVER_ERROR: 'Server error. We automatically register all errors and will fix everything soon',
-        ERR_INVALID_NICKNAME:
+        ERR_VALIDATION_ERROR:
           'The alias must be at least 7 characters and can contain only numbers, letters and an underscore',
       },
       screens: {
@@ -45,12 +46,6 @@ export const resources = {
             save: 'Change',
           },
         },
-        ExamplesScreen: {
-          title: 'Examples',
-        },
-        LessonsScreen: {
-          title: 'Lessons',
-        },
         auth: {
           title: 'Authentication',
           signIn: {
@@ -63,12 +58,32 @@ export const resources = {
           },
         },
       },
+      barActions: {
+        create: 'Create',
+        update: 'Update',
+        delete: 'Delete',
+        cancel: 'Cancel',
+      },
+      orderStatuses: {
+        pending_confirmation: 'Pending confirmation',
+        processing: 'Processing',
+        packaging: 'Packaging',
+        waiting_for_delivery: 'Waiting for delivery',
+        in_transit: 'In transit',
+        return_requested: 'Return requested',
+        delivered: 'Delivered',
+        order_cancelled: 'Canceled',
+      },
       navigation: {
         home: 'Home',
+        catalog: 'Catalog',
         profile: 'Profile',
         cart: 'Cart',
-        product: 'Product',
-        category: 'Category',
+        orders: 'Orders',
+        admin: 'Admin',
+        adminCategories: 'Categories',
+        adminProducts: 'Products',
+        adminOrders: 'Orders',
       },
       pages: {
         Cart: {
@@ -131,18 +146,11 @@ export const resources = {
             title: 'Change password',
           },
         },
-        UserForm: {
+        ProfileForm: {
           title: 'User',
           name: {
             title: 'Nickname',
-            placeholder: 'Come up with a pseudonym for yourself',
-          },
-          about: {
-            title: 'About',
-            placeholder: 'Write something about yourself',
-          },
-          submitButton: {
-            title: 'Save',
+            placeholder: 'Enter your Nickname',
           },
         },
         ProductForm: {
@@ -173,25 +181,27 @@ export const resources = {
               placeholder: 'Enter product category',
             },
           },
-          actions: {
-            create: {
-              headerTitle: 'Create product',
-              buttonTitle: 'Create',
-            },
-            update: {
-              headerTitle: 'Update product',
-              buttonTitle: 'Update',
-            },
-          },
         },
       },
       fields: {
         string: 'String value',
       },
       components: {
+        Search: {
+          Input: {
+            placeholder: 'Enter product name',
+          },
+          Button: {
+            caption: 'Search',
+          },
+          CategoryFilter: {
+            caption: 'Category',
+          },
+        },
         AddToCart: {
           toCart: 'To cart',
           deleteFromCart: 'Delete',
+          buyNow: 'Buy Now',
         },
         RemoveButton: {
           title: 'Data will be lost, delete?',
@@ -216,33 +226,6 @@ export const resources = {
         login: {
           enter: 'Login',
           leave: 'Logout',
-        },
-        header: {
-          nav: 'Navigation',
-          root: 'Home',
-          profile: 'Profile',
-          'home-works': 'Home works',
-          examples: 'Examples',
-          lessons: 'Lessons',
-          teachers: 'Teachers',
-        },
-      },
-      enums: {
-        ExampleKey: {
-          modal: 'Modal',
-          movable: 'Movable',
-          sortableList: 'Sortable List',
-          waveSlider: 'Wave Slider',
-          inputs: 'Inputs',
-        },
-        LessonKey: {
-          generator: 'Generators iterators',
-          patterns: 'Patterns',
-          solid: 'Solid',
-          functionalProgramming: 'Functional Programming',
-          babel: 'Babel + typescript',
-          socketsAndWorkers: 'Web sockets & Web workers',
-          graphql: 'Graphql',
         },
       },
     },
@@ -269,13 +252,14 @@ export const resources = {
         ERR_INVALID_PASSWORD: 'Пароль должен содержать от 8 символов',
         ERR_INVALID_EMAIL: 'Некорректный email',
         ERR_INVALID_IMAGE_LINK: 'Некорректная ссылка на фото',
+        ERR_NO_MATCHING: 'Нет продуктов, соответствующих критериям поиска',
         ERR_TOKEN_REQUIRED_ERROR:
           'Серверная ошибка токена. Мы автоматически регистрируем все ошибки и скоро все исправим',
         ERR_AUTH_ERROR: 'Вы не авторизованы, войдите в учетную запись и повторите попытку',
         ERR_DATA_BASE_ERROR:
           'Серверная ошибка базы данный. Мы автоматически регистрируем все ошибки и скоро все исправим',
         INTERNAL_SERVER_ERROR: 'Серверная ошибка. Мы автоматически регистрируем все ошибки и скоро все исправим',
-        ERR_INVALID_NICKNAME:
+        ERR_VALIDATION_ERROR:
           'Псевдоним должен быть от 7 символов и может содержать только числа, буквы и символ нижнего подчеркивания',
       },
       screens: {
@@ -292,12 +276,6 @@ export const resources = {
             save: 'Изменить',
           },
         },
-        ExamplesScreen: {
-          title: 'Примеры',
-        },
-        LessonsScreen: {
-          title: 'Уроки',
-        },
         auth: {
           title: 'Аутентификация',
           signIn: {
@@ -310,12 +288,32 @@ export const resources = {
           },
         },
       },
+      barActions: {
+        create: 'Добавить',
+        update: 'Обновить',
+        delete: 'Удалить',
+        cancel: 'Отменить',
+      },
+      orderStatuses: {
+        pending_confirmation: 'Ожидает подтверждения',
+        processing: 'Комплектуется',
+        packaging: 'Упаковывается',
+        waiting_for_delivery: 'Ожидает доставки',
+        in_transit: 'Доставляется',
+        return_requested: 'Запрос на возврат',
+        delivered: 'Доставлен',
+        order_cancelled: 'Отменен',
+      },
       navigation: {
         home: 'Домашняя страница',
+        catalog: 'Каталог',
         profile: 'Профиль',
         cart: 'Корзина',
-        product: 'Продукт',
-        category: 'Категория',
+        orders: 'Заказы',
+        admin: 'Админка',
+        adminCategories: 'Категории',
+        adminProducts: 'Продукты',
+        adminOrders: 'Заказы',
       },
       pages: {
         Cart: {
@@ -378,18 +376,11 @@ export const resources = {
             title: 'Изменить пароль',
           },
         },
-        UserForm: {
+        ProfileForm: {
           title: 'Пользователь',
           name: {
             title: 'Псевдоним',
-            placeholder: 'Придумайте себе псевдоним',
-          },
-          about: {
-            title: 'О себе',
-            placeholder: 'Напишите что-нибудь о себе',
-          },
-          submitButton: {
-            title: 'Сохранить',
+            placeholder: 'Введите псевдоним',
           },
         },
         ProductForm: {
@@ -423,25 +414,27 @@ export const resources = {
               title: 'Сохранить',
             },
           },
-          actions: {
-            create: {
-              headerTitle: 'Создать товар',
-              buttonTitle: 'Создать',
-            },
-            update: {
-              headerTitle: 'Обновить товар',
-              buttonTitle: 'Обновить',
-            },
-          },
         },
       },
       fields: {
         string: 'Строковое значение',
       },
       components: {
+        Search: {
+          Input: {
+            placeholder: 'Введите название товара',
+          },
+          Button: {
+            caption: 'Поиск',
+          },
+          CategoryFilter: {
+            caption: 'Категория',
+          },
+        },
         AddToCart: {
           toCart: 'В корзину',
           deleteFromCart: 'Удалить',
+          buyNow: 'Купить',
         },
         RemoveButton: {
           title: 'Данные будут потеряны, удалить?',
@@ -466,34 +459,6 @@ export const resources = {
         login: {
           enter: 'Вход',
           leave: 'Выход',
-        },
-        header: {
-          nav: 'Навигация',
-          root: 'Главная',
-          profile: 'Профиль',
-          'home-works': 'Домашние работы',
-          examples: 'Примеры',
-          lessons: 'Уроки',
-          teachers: 'Преподаватели',
-        },
-      },
-      enums: {
-        ExampleKey: {
-          modal: 'Модальное окно',
-          movable: 'Перемещаемый',
-          sortableList: 'Сортируемый список',
-          waveSlider: 'Слайдер',
-          inputs: 'Инпуты',
-        },
-        LessonKey: {
-          generator: 'Генераторы итераторы',
-          patterns: 'Паттерны',
-          restApi: 'Rest Api',
-          solid: 'Solid',
-          functionalProgramming: 'Функциональное программирование',
-          babel: 'Babel + typescript',
-          socketsAndWorkers: 'Web sockets & Web workers',
-          graphql: 'Graphql',
         },
       },
     },

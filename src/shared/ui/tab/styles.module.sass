@@ -1,0 +1,17 @@
+@import src/app/styles/common
+
+.button
+  font-size: 1rem
+  font-weight: 700
+  padding: 10px 30px
+  cursor: pointer
+  // opacity: 0.6
+  background: white
+  border: 0
+  outline: 0
+  transition: ease border-bottom 250ms
+
+  &.active
+    opacity: 1
+    border-radius: 10px 10px 0 0
+    +theme(background-color, primaryColor)

@@ -12,7 +12,7 @@ export const signUp = async (email: string, password: string): Promise<ISignUpRe
     commandId: API_COMMAND_ID,
   } as ISignUpRequest;
   const responseData = await apiInstance().post<ISignUpResponse, ISignUpRequest>(URL_SIGN_UP, data);
-  if (isSignUpResponse(responseData))
+  if (!isSignUpResponse(responseData))
     throw new APIError('Server error: Unknown Response format', 'ERR_UNKNOWN_RESPONSE_FORMAT');
   return responseData;
 };

@@ -1,14 +1,14 @@
 import { IProduct, isProduct } from '../product';
 import { ICreatedAt, IUpdatatedAt, IPagination, ISorting } from '@shared/api';
-import { IProfile, isProfile } from '../profile';
+import { IProfile } from '../profile';
 
 export interface IOrder {
   id: string;
   products: IOrderProduct[];
   user: IProfile;
   status: OrderStatus;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string | Date;
+  updatedAt: string | Date;
 }
 
 export interface IOrderProduct {
@@ -53,8 +53,8 @@ export interface IOrderCreate {
 }
 
 export interface IOrderRequest {
-  productIds: string[];
-  status: OrderStatus;
+  productIds?: string[];
+  status?: OrderStatus;
 }
 
 export const isOrder = (order: unknown): order is IOrder => {
@@ -62,13 +62,12 @@ export const isOrder = (order: unknown): order is IOrder => {
   return (
     Object.hasOwn(tempOrder, 'id') &&
     Object.hasOwn(tempOrder, 'user') &&
-    isProfile(tempOrder.user) &&
     Object.hasOwn(tempOrder, 'createdAt') &&
     Object.hasOwn(tempOrder, 'updatedAt') &&
     Object.hasOwn(tempOrder, 'status') &&
     Object.values(OrderStatus).includes(tempOrder.status) &&
     Object.hasOwn(tempOrder, 'products') &&
-    tempOrder.products.every((product) => isProduct(product))
+    tempOrder.products.every((p) => (p.product === null || isProduct(p.product)) && Object.hasOwn(p, 'quantity'))
   );
 };
 

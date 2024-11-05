@@ -5,4 +5,5 @@ export interface IProfileState {
   setProfile(profile: IProfile): void;
   getProfile: () => void;
   clearProfile: () => void;
+  isProfileLoaded: () => boolean;
 }

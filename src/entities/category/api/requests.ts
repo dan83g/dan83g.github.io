@@ -1,4 +1,4 @@
-import { apiInstance } from '@shared/api';
+import { apiInstance, getApiParameters } from '@shared/api';
 import {
   isCategoriesResponse,
   ICategoriesResponse,
@@ -9,9 +9,10 @@ import {
 } from '../types';
 import { APIError } from '@shared/api/errors/ApiError';
 
-export const URL_CATEGORIES = '/categories ';
+export const URL_CATEGORIES = '/categories';
 
 export const getCategories = async (token: string, filters?: ICategoriesFilter): Promise<ICategoriesResponse> => {
+  filters = <ICategoriesFilter>getApiParameters(filters);
   const responseData = await apiInstance(token).get<ICategoriesResponse[]>(URL_CATEGORIES, { params: filters });
   if (!isCategoriesResponse(responseData))
     throw new APIError('Server error: Unknown Response format', 'ERR_UNKNOWN_RESPONSE_FORMAT');
