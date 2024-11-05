@@ -3,12 +3,12 @@ import React, { FC, ReactElement, useEffect, useInsertionEffect, useState } from
 import { useTranslation } from 'react-i18next';
 import { MdOutlineBorderColor, MdOutlineDeleteForever, MdOutlineMonetizationOn } from 'react-icons/md';
 import { useTokentStore } from '@entities/token';
-import { useAdminOrdersStore, getOrders, OrderCard, patchOrder, deleteOrder, OrderStatus } from 'src/entities/order';
+import { useAdminOrdersStore, getOrders, OrderCard, patchOrder, deleteOrder, OrderStatus } from '@entities/order';
 import { OrderProductList } from '@entities/product/ui/order-product-list';
 import { API_PAGE_SIZE } from '@shared/config';
 import { useIntersectionObserver } from '@shared/hooks/use-intersection-observer';
-import { Dropdown, IOption } from 'src/shared/ui/drop-down';
-import { IconButton } from 'src/shared/ui/icon-button';
+import { Dropdown, IOption } from '@shared/ui/drop-down';
+import { IconButton } from '@shared/ui/icon-button';
 import s from './styles.module.sass';
 
 export const AdminOrderList: FC = (): ReactElement => {

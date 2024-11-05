@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react';
-import { Portal } from 'src/shared/ui/portal';
-import Modal from 'src/shared/ui/modal';
+import { Portal } from '@shared/ui/portal';
+import Modal from '@shared/ui/modal';
 
 interface IModalFormWrapper {
   children: ReactNode;

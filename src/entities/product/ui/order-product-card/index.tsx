@@ -1,6 +1,6 @@
 import React from 'react';
 import { IProduct } from '../../types';
-import { CURRENCY_SYMBOL } from 'src/shared/config/currency';
+import { CURRENCY_SYMBOL } from '@shared/config/currency';
 import s from './styles.module.sass';
 
 export const OrderProductCard = ({ name, price, photo }: Partial<IProduct>) => {

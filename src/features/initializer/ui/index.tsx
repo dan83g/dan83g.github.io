@@ -1,6 +1,6 @@
 import { FC, useInsertionEffect } from 'react';
 import { getCategories, useCategoriesStore } from '@entities/category';
-import { useTokentStore } from 'src/entities/token';
+import { useTokentStore } from '@entities/token';
 
 export const Initializer: FC = () => {
   const { token } = useTokentStore();

@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'src/shared/ui/button';
-import { TextFormField } from 'src/shared/forms/fields/TextFormField';
+import { Button } from '@shared/ui/button';
+import { TextFormField } from '@shared/forms/fields/TextFormField';
 import { ProfileFormErrors, IProfileFormValues, ProfileFormActions } from './types';
 
 export * from './types';

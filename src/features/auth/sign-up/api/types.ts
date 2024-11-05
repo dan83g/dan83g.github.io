@@ -1,4 +1,4 @@
-import { IProfile, isProfile } from 'src/entities/profile';
+import { IProfile, isProfile } from '@entities/profile';
 
 export interface ISignUpRequest {
   email: string;

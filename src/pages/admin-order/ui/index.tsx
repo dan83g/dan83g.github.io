@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { AdminOrderList } from 'src/widgets/admin-order-list';
+import { AdminOrderList } from '@widgets/admin-order-list';
 import s from './styles.module.sass';
 
 const AdminOrderPage: FC = () => {

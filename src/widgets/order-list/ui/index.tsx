@@ -6,10 +6,10 @@ import { useTokentStore } from '@entities/token';
 import { OrderProductList } from '@entities/product/ui/order-product-list';
 import { API_PAGE_SIZE } from '@shared/config';
 import { useIntersectionObserver } from '@shared/hooks/use-intersection-observer';
-import { useOrdersStore, getOrders, OrderCard, patchOrder, OrderStatus } from 'src/entities/order';
-import { IconButton } from 'src/shared/ui/icon-button';
+import { useOrdersStore, getOrders, OrderCard, patchOrder, OrderStatus } from '@entities/order';
+import { IconButton } from '@shared/ui/icon-button';
 import s from './styles.module.sass';
-import { Spinner } from 'src/shared/ui/spinner';
+import { Spinner } from '@shared/ui/spinner';
 
 export const OrderList: FC = (): ReactElement => {
   const { t } = useTranslation();

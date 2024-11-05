@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { IOrdersState } from './types';
 import { IOrder } from '../types';
-import { IPagination } from 'src/shared/api';
+import { IPagination } from '@shared/api';
 
 export const useOrdersStore = create<IOrdersState>()((set, get) => ({
   orders: [] as IOrder[],

@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react';
 import cn from 'clsx';
-import { ICartActionBarProps } from 'src/shared/ui/cart-action-bar';
-import { ICRUDActionBarProps } from 'src/shared/ui/crud-action-bar';
+import { ICartActionBarProps } from '@shared/ui/cart-action-bar';
+import { ICRUDActionBarProps } from '@shared/ui/crud-action-bar';
 import { IProduct } from '../../types';
-import { CURRENCY_SYMBOL } from 'src/shared/config/currency';
+import { CURRENCY_SYMBOL } from '@shared/config/currency';
 import { Link } from 'react-router-dom';
 import s from './styles.module.sass';
 

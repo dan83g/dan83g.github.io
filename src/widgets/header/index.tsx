@@ -1,11 +1,11 @@
 import React from 'react';
-import { Logo } from 'src/shared/ui/logo';
+import { Logo } from '@shared/ui/logo';
 import { ThemeSwitcher } from '@features/theme-switcher';
 import { LangSwitcher } from '@features/lang-switcher';
 import { Navigation } from '@features/navigation';
 import { Login } from '@features/sign-switcher';
 import s from './styles.module.sass';
-import { Search } from 'src/features/search';
+import { Search } from '@features/search';
 
 export const Header = () => {
   return (

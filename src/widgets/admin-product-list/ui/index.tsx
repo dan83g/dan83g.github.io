@@ -21,7 +21,7 @@ import {
   useAdminProductsStore,
 } from '@entities/product';
 import s from './styles.module.sass';
-import { Spinner } from 'src/shared/ui/spinner';
+import { Spinner } from '@shared/ui/spinner';
 
 export const AdminProductList: FC = (): ReactElement => {
   const { t } = useTranslation();

@@ -2,8 +2,8 @@
 import React, { FC, ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
-import { Divider } from 'src/shared/ui/divider';
-import { useTokentStore } from 'src/entities/token/store';
+import { Divider } from '@shared/ui/divider';
+import { useTokentStore } from '@entities/token/store';
 import {
   useProfileStore,
   updateProfile,
@@ -14,8 +14,8 @@ import {
   ProfileFormActions,
   IUpdateProfileRequest,
   IChangePasswordRequest,
-} from 'src/entities/profile';
-import { IChangePasswordFormValues, ChangePasswordFormActions } from 'src/entities/profile/ui/password-form/types';
+} from '@entities/profile';
+import { IChangePasswordFormValues, ChangePasswordFormActions } from '@entities/profile/ui/password-form/types';
 
 export const ProfileWidget: FC = (): ReactElement => {
   const { t } = useTranslation();

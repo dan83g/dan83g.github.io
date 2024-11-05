@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IOrder } from '../../types';
-import { ICRUDActionBarProps } from 'src/shared/ui/crud-action-bar';
-import { CURRENCY_SYMBOL } from 'src/shared/config/currency';
+import { ICRUDActionBarProps } from '@shared/ui/crud-action-bar';
+import { CURRENCY_SYMBOL } from '@shared/config/currency';
 import s from './styles.module.sass';
 
 export interface IOrderCard extends IOrder {

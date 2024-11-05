@@ -1,12 +1,12 @@
 import React from 'react';
-import { ProductCard } from 'src/entities/product';
+import { ProductCard } from '@entities/product';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@shared/ui/button';
 import { createOrder, useOrdersStore } from '@entities/order';
 import { useCartStore, ICartProduct } from '@entities/product';
-import { CartActionBar } from 'src/shared/ui/cart-action-bar';
-import { useTokentStore } from 'src/entities/token';
-import { CURRENCY_SYMBOL } from 'src/shared/config/currency';
+import { CartActionBar } from '@shared/ui/cart-action-bar';
+import { useTokentStore } from '@entities/token';
+import { CURRENCY_SYMBOL } from '@shared/config/currency';
 import s from './styles.module.sass';
 
 const CartPage = () => {

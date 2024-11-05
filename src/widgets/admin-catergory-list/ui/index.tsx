@@ -20,7 +20,7 @@ import {
   useAdminCategoriesStore,
 } from '@entities/category';
 import s from './styles.module.sass';
-import { Spinner } from 'src/shared/ui/spinner';
+import { Spinner } from '@shared/ui/spinner';
 
 export const AdminCategoryList: FC = (): ReactElement => {
   const { t } = useTranslation();

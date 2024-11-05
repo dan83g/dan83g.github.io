@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { ICategoriesState } from './types';
 import { ICategory } from '../types';
-import { IPagination } from 'src/shared/api';
+import { IPagination } from '@shared/api';
 
 export const useCategoriesStore = create<ICategoriesState>()((set, get) => ({
   categories: [] as ICategory[],

@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
-import { OrderProductCard, IProduct } from 'src/entities/product';
-import { CURRENCY_SYMBOL } from 'src/shared/config/currency';
+import { OrderProductCard, IProduct } from '@entities/product';
+import { CURRENCY_SYMBOL } from '@shared/config/currency';
 import s from './styles.module.sass';
 
 export interface IOrderProduct {

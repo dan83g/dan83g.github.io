@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@shared/ui/button';
-import { IProduct } from 'src/entities/product';
+import { IProduct } from '@entities/product';
 import s from './styles.module.sass';
 
 export interface IProductCardDetailed extends IProduct {

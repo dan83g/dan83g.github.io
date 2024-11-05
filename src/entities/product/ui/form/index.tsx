@@ -1,13 +1,13 @@
 import React, { ChangeEvent, memo } from 'react';
 import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'src/shared/ui/button';
-import { NumberFormField } from 'src/shared/forms/fields/NumberFormField';
-import { TextFormField } from 'src/shared/forms/fields/TextFormField';
-import { isUndefiend } from 'src/shared/forms/lib/validation';
-import { TextAreaFormField } from 'src/shared/forms/fields/TextAreaFormField';
-import { SelectFormField } from 'src/shared/forms/fields/SelectFormField';
-import { ICategory } from 'src/entities/category';
+import { Button } from '@shared/ui/button';
+import { NumberFormField } from '@shared/forms/fields/NumberFormField';
+import { TextFormField } from '@shared/forms/fields/TextFormField';
+import { isUndefiend } from '@shared/forms/lib/validation';
+import { TextAreaFormField } from '@shared/forms/fields/TextAreaFormField';
+import { SelectFormField } from '@shared/forms/fields/SelectFormField';
+import { ICategory } from '@entities/category';
 import { ProductFormErrors, IProductFormValues, ProductFormActions } from './types';
 export * from './types';
 

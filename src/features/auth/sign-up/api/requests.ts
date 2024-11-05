@@ -1,7 +1,7 @@
 import { apiInstance } from '@shared/api';
 import { ISignUpRequest, ISignUpResponse, isSignUpResponse } from './types';
-import { API_COMMAND_ID } from 'src/shared/config/api';
-import { APIError } from 'src/shared/api/errors/ApiError';
+import { API_COMMAND_ID } from '@shared/config/api';
+import { APIError } from '@shared/api/errors/ApiError';
 
 export const URL_SIGN_UP = '/signup';
 

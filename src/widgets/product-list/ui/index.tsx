@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { FC, ReactElement, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ProductCard, getProducts, useCartStore, useProductsStore, useProductsFilterStore } from 'src/entities/product';
-import { CartActionBar } from 'src/shared/ui/cart-action-bar';
-import { useTokentStore } from 'src/entities/token/store';
-import { API_PAGE_SIZE } from 'src/shared/config';
-import { useIntersectionObserver } from 'src/shared/hooks/use-intersection-observer';
-import { Spinner } from 'src/shared/ui/spinner';
+import { ProductCard, getProducts, useCartStore, useProductsStore, useProductsFilterStore } from '@entities/product';
+import { CartActionBar } from '@shared/ui/cart-action-bar';
+import { useTokentStore } from '@entities/token/store';
+import { API_PAGE_SIZE } from '@shared/config';
+import { useIntersectionObserver } from '@shared/hooks/use-intersection-observer';
+import { Spinner } from '@shared/ui/spinner';
 import s from './styles.module.sass';
 
 export const ProductList: FC = (): ReactElement => {

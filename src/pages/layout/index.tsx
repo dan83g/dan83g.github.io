@@ -1,5 +1,5 @@
 import React, { FC, ReactElement } from 'react';
-import { Header } from 'src/widgets/header';
+import { Header } from '@widgets/header';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { IAdminCategoriesState } from './types';
 import { ICategory } from '../types';
-import { IPagination } from 'src/shared/api';
+import { IPagination } from '@shared/api';
 
 export const useAdminCategoriesStore = create<IAdminCategoriesState>()((set, get) => ({
   categories: [] as ICategory[],

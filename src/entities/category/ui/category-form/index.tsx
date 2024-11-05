@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
 import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'src/shared/ui/button';
-import { TextFormField } from 'src/shared/forms/fields/TextFormField';
-import { isUndefiend, isInvalidImageLink } from 'src/shared/forms/lib/validation';
+import { Button } from '@shared/ui/button';
+import { TextFormField } from '@shared/forms/fields/TextFormField';
+import { isUndefiend, isInvalidImageLink } from '@shared/forms/lib/validation';
 import { ICategoryFormValues, CategoryFormErrors, CategoryFormActions } from './types';
 
 export * from './types';

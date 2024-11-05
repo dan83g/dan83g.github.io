@@ -2,12 +2,12 @@ import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@shared/ui/button';
 import { Input } from '@shared/ui/input';
-import { Dropdown, IOption } from 'src/shared/ui/drop-down';
+import { Dropdown, IOption } from '@shared/ui/drop-down';
 import { MdOutlineFilterAlt, MdOutlineSearch } from 'react-icons/md';
-import { getProducts, useProductsFilterStore, useProductsStore } from 'src/entities/product';
-import { useCategoriesStore } from 'src/entities/category';
+import { getProducts, useProductsFilterStore, useProductsStore } from '@entities/product';
+import { useCategoriesStore } from '@entities/category';
 import s from './styles.module.sass';
-import { useTokentStore } from 'src/entities/token';
+import { useTokentStore } from '@entities/token';
 
 export const Search = () => {
   const { t } = useTranslation();

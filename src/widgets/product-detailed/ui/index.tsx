@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { FC, ReactElement, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useTokentStore } from 'src/entities/token/store';
-import { Spinner } from 'src/shared/ui/spinner';
-import { getProduct, useCartStore, IProduct } from 'src/entities/product';
-import { ProductCardDetailed } from 'src/entities/product/ui/product-card-detailed';
+import { useTokentStore } from '@entities/token/store';
+import { Spinner } from '@shared/ui/spinner';
+import { getProduct, useCartStore, IProduct } from '@entities/product';
+import { ProductCardDetailed } from '@entities/product/ui/product-card-detailed';
 import s from './styles.module.sass';
 
 export const ProductDetailed: FC = (): ReactElement => {

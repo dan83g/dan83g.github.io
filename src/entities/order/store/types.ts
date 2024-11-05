@@ -1,4 +1,4 @@
-import { IPagination } from 'src/shared/api';
+import { IPagination } from '@shared/api';
 import { IOrder } from '../types';
 
 export interface IOrdersState {

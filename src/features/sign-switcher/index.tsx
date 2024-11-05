@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { MdLogin, MdLogout } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
-import { useTokentStore } from 'src/entities/token';
-import { useProfileStore } from 'src/entities/profile';
+import { useTokentStore } from '@entities/token';
+import { useProfileStore } from '@entities/profile';
 import { ROUTES } from '@shared/config';
 import s from './styles.module.sass';
 

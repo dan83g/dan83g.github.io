@@ -3,10 +3,10 @@ import React, { FC, ReactElement, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Badge } from 'antd';
-import { Button } from 'src/shared/ui/button';
-import { ROUTES } from 'src/shared/config';
-import { Dropdown, IOption } from 'src/shared/ui/drop-down';
-import { useCartStore } from 'src/entities/product';
+import { Button } from '@shared/ui/button';
+import { ROUTES } from '@shared/config';
+import { Dropdown, IOption } from '@shared/ui/drop-down';
+import { useCartStore } from '@entities/product';
 import {
   MdOutlineChecklist,
   MdOutlineShoppingCart,

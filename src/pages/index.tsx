@@ -1,7 +1,7 @@
 import React, { FC, lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { ProtectedRoute } from 'src/widgets/protected-route/ui';
-import { ROUTES } from 'src/shared/config';
+import { ProtectedRoute } from '@widgets/protected-route/ui';
+import { ROUTES } from '@shared/config';
 
 const HomePage = lazy(() => import('./home'));
 const AuthPage = lazy(() => import('./auth'));

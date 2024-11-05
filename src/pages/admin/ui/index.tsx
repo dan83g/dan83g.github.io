@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TabView } from 'src/shared/ui/tab-view';
-import { Tab } from 'src/shared/ui/tab';
+import { TabView } from '@shared/ui/tab-view';
+import { Tab } from '@shared/ui/tab';
 import s from './styles.module.sass';
 
 // export interface IAdmin {

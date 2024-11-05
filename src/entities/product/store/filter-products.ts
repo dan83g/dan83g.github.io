@@ -1,8 +1,8 @@
 import { create } from 'zustand';
 import { IFilterState } from './types';
 import { IProductsFilter } from '../types';
-import { IPagination, ICreatedAt, IUpdatatedAt, ISorting } from 'src/shared/api';
-import { API_PAGE_SIZE } from 'src/shared/config';
+import { IPagination, ICreatedAt, IUpdatatedAt, ISorting } from '@shared/api';
+import { API_PAGE_SIZE } from '@shared/config';
 
 export const useProductsFilterStore = create<IFilterState>()((set, get) => ({
   name: undefined,

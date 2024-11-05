@@ -7,7 +7,7 @@ import {
   IChangePasswordResponse,
   IUpdateProfileRequest,
 } from '../types';
-import { APIError } from 'src/shared/api/errors/ApiError';
+import { APIError } from '@shared/api/errors/ApiError';
 
 export const URL_PROFILE = '/profile';
 export const URL_CHANGE_PASSWORD = '/profile/change-password';

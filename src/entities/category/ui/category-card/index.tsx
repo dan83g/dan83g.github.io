@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import cn from 'clsx';
-import { ICRUDActionBarProps } from 'src/shared/ui/crud-action-bar';
+import { ICRUDActionBarProps } from '@shared/ui/crud-action-bar';
 import { ICategory } from '../../types';
 import s from './styles.module.sass';
 

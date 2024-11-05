@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { IProductsState } from './types';
 import { IProduct } from '../types';
-import { IPagination } from 'src/shared/api';
+import { IPagination } from '@shared/api';
 
 export const useProductsStore = create<IProductsState>()((set, get) => ({
   products: [] as IProduct[],

@@ -1,5 +1,5 @@
 import React from 'react';
-import shoppingCartLogo from 'src/assets/shopping-cart.svg';
+import shoppingCartLogo from './shopping-cart.svg';
 import s from './styles.module.sass';
 import { Link } from 'react-router-dom';
 

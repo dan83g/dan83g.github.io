@@ -1,5 +1,5 @@
 import { ICartProduct, IProduct, IProductsFilter } from '../types';
-import { ICreatedAt, IPagination, ISorting, IUpdatatedAt } from 'src/shared/api';
+import { ICreatedAt, IPagination, ISorting, IUpdatatedAt } from '@shared/api';
 
 export interface IOrderItem {
   id: string;

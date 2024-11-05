@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { AdminCategoryList } from 'src/widgets/admin-catergory-list';
+import { AdminCategoryList } from '@widgets/admin-catergory-list';
 import s from './styles.module.sass';
 
 const AdminCategoryPage: FC = () => {

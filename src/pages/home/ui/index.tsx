@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { ProductList } from 'src/widgets/product-list/ui';
+import { ProductList } from '@widgets/product-list/ui';
 import s from './styles.module.sass';
 
 const HomePage: FC = () => {

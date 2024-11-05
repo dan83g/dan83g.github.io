@@ -2,10 +2,10 @@
 import React, { FC } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { NavigationState } from '../types';
-import { useTokentStore } from 'src/entities/token';
-import { useProfileStore } from 'src/entities/profile';
-import { ROUTES } from 'src/shared/config';
-import { Restricted } from 'src/pages/restricted';
+import { useTokentStore } from '@entities/token';
+import { useProfileStore } from '@entities/profile';
+import { ROUTES } from '@shared/config';
+import { Restricted } from '@pages/restricted';
 
 export interface IProtectedRoute {
   children: React.ReactNode;

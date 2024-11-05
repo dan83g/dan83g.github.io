@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
 import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'src/shared/ui/button';
-import { isUndefiend } from 'src/shared/forms/lib/validation';
-import { PasswordFormField } from 'src/shared/forms/fields/PasswordFormField';
+import { Button } from '@shared/ui/button';
+import { isUndefiend } from '@shared/forms/lib/validation';
+import { PasswordFormField } from '@shared/forms/fields/PasswordFormField';
 import { ChangePasswordFormErrors, IChangePasswordFormValues, ChangePasswordFormActions } from './types';
 
 export interface IChangePasswordForm<Values> extends Partial<IChangePasswordFormValues> {

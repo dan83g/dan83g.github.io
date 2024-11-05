@@ -8,9 +8,9 @@ export interface ITabView {
 }
 
 export const TabView: FC<ITabView> = ({ children, initialTabKey }) => {
+  const [tabKey, setTab] = useState<string>(initialTabKey);
   const arrayChildren = Children.toArray(children);
   const [, startTransition] = useTransition();
-  const [tabKey, setTab] = useState<string>(initialTabKey);
 
   const changeTab = (tabKey: string) => {
     startTransition(() => {
@@ -20,7 +20,7 @@ export const TabView: FC<ITabView> = ({ children, initialTabKey }) => {
 
   return (
     <div>
-      <div className={s.root}>
+      <div className={s.header}>
         {Children.map(arrayChildren, (child: ReactElement<ITab>) => {
           return (
             <Tab

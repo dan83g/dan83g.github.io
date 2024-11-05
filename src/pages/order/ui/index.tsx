@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { OrderList } from 'src/widgets/order-list';
+import { OrderList } from '@widgets/order-list';
 import s from './styles.module.sass';
 
 const OrderPage: FC = () => {
