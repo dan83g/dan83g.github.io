@@ -11,6 +11,7 @@ import { APIError } from '@shared/api/errors/ApiError';
 
 export const URL_CATEGORIES = '/categories';
 
+
 export const getCategories = async (token: string, filters?: ICategoriesFilter): Promise<ICategoriesResponse> => {
   filters = <ICategoriesFilter>getApiParameters(filters);
   const responseData = await apiInstance(token).get<ICategoriesResponse[]>(URL_CATEGORIES, { params: filters });
