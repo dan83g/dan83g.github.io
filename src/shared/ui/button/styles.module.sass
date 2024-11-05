@@ -1,0 +1,33 @@
+@import src/app/styles/common
+
+.button
+  display: flex
+  box-sizing: border-box
+  align-items: center
+  justify-content: flex-start
+  padding: 0.5rem
+  border: none
+  border-radius: 5px
+  color: var(--light-color)
+  cursor: pointer
+  font-size: 1rem
+  font-style: normal
+  font-weight: 600
+  line-height: 130%
+  +theme(background-color, primaryColor)
+
+  &:hover
+    opacity: .7
+
+  &:disabled
+    opacity: 1
+
+  .loader > div
+    border-color: var(--light-color)
+    border-bottom-color: transparent
+
+.button_disabled
+  background: var(--gray-color)
+
+.button_load
+  padding: 15px 22px 15px 19px
